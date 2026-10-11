@@ -1,7 +1,7 @@
 import { useFetch, useCountdown } from '@vueuse/core'
 import { ref } from 'vue'
 
-const URL = 'https://api.jikan.moe/v4/random/anime'
+const URL = 'https://api.tenrai.org/v1/random/anime'
 const MAX_SAFE_SPIN_ATTEMPTS = 5
 const RETRY_SECONDS = 10
 
@@ -37,7 +37,7 @@ export function useAnimeRoulette() {
         const response = request.response.value
 
         if (!response) {
-          error.value = 'Network error while contacting Jikan. Check your internet and try again.'
+          error.value = 'Network error while contacting Tenrai. Check your internet and try again.'
           return
         }
 
@@ -48,25 +48,26 @@ export function useAnimeRoulette() {
         }
 
         if (!response.ok) {
-          error.value = `Something went wrong while contacting jikan. Status: ${response.status}.`
+          error.value = `Something went wrong while contacting Tenrai. Status: ${response.status}.`
           return
         }
 
         if (request.error.value) {
-          error.value = 'Network error while contacting Jikan. Check your internet and try again.'
+          error.value = 'Network error while contacting Tenrai. Check your internet and try again.'
           return
         }
 
         const candidateAnime = request.data.value?.data || null
 
         if (!candidateAnime) {
-          error.value = 'Jikan returned an empty anime payload. Try spinning again.'
+          error.value = 'Tenrai returned an empty anime payload. Try spinning again.'
           return
         }
         
         if (!isAllowedRating(candidateAnime.rating)) {
           continue
         }
+
         anime.value = candidateAnime
 
         return
