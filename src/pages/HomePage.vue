@@ -23,11 +23,11 @@ const spinLabel = computed(() => {
 </script>
 
 <template>
-    <main class="min-h-screen bg-[radial-gradient(circle_at_15%_20%,#334155,transparent_40%),radial-gradient(circle_at_85%_0%,#0f766e,transparent_28%),linear-gradient(160deg,#020617,#0f172a,#111827)] px-4 py-8 text-slate-100 sm:px 6 lg:px-8">
+    <main class="min-h-screen bg-[radial-gradient(circle_at_15%_20%,#7c2d12,transparent_40%),radial-gradient(circle_at_85%_0%,#a16207,transparent_28%),linear-gradient(160deg,#090909,#18110b,#000000)] px-4 py-8 text-white sm:px-6 lg:px-8">
 
     <div class="mx-auto max-w-7xl">
       <header class="mb-8">
-        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300/90">Project #4</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400">Project #4</p>
         <h1 class="mt-2 text-4xl font-black text-white sm:text-5xl">Anime Roulette Machine</h1>
         <p class="mt-2 max-w-3xl text-sm text-slate-300 sm:text-base">Spin the reel, request a random anime from Jinkan with VueUse useFech, and learnhow REST APIs signal rate limiting with HTTP 429.</p>
       </header>
@@ -43,7 +43,7 @@ const spinLabel = computed(() => {
               <button 
                 type="button" 
                 :disabled="spinDisabled"
-                class="cursor-pointer rounded-full border border-cyan-300/70 bg-cyan-400/20 px-6 py-3 text-base font-black tracking-wide text-cyan-100 hover:bg-cyan-400/30 disabled:cursor-not-allowed disabled:opacity-60"
+                class="cursor-pointer rounded-full border border-orange-400/70 bg-orange-500/30 px-6 py-3 text-base font-black tracking-wide text-white hover:bg-orange-500/50 disabled:cursor-not-allowed disabled:opacity-60"
                 @click="spin"
                 
                 >
